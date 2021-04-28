@@ -1,8 +1,7 @@
 <?php
-    require_once "../controleur/produitC.php" ;
+    require_once '../controleur/produitC.php';
 
     $produitC =  new produitC();
-    
 
 ?>
 
@@ -12,13 +11,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>rechercher produit</title>
+	<title>am</title>
 	<link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
 <body>
-
+	
 
 	<section class="container">
 		<h2></h2>
@@ -26,7 +25,7 @@
             <form action="" method = 'POST'>
                 <div class="row">
                     <div class="col-25">                
-                        <label>Search produit: </label>
+                        <label>Search type: </label>
                     </div>
                     <div class="col-75">
                         <input type = "text" name = 'produit'>
@@ -41,13 +40,13 @@
 	</section>
 
 	<?php
-		if (isset($_POST['type']) && isset($_POST['prix']) && isset($_POST['capacite']) && isset($_POST['datefin'])){
+		if (isset($_POST['produit']) && isset($_POST['rechercher'])){
 			$result = $produitC->getproduitbytype($_POST['produit']);
 			if ($result !== false) {
 	?>
 		<section class="container">
 			<h2>MUSIC</h2>
-			<a href = "afficherProduit.php" class="btn btn-primary shop-item-button">All albums</a>
+			<a href = "afficherProduit.php" class="btn btn-primary shop-item-button">All produit</a>
 			<div class="shop-items">
 				
 				<div class="shop-item">
@@ -55,6 +54,13 @@
 					
 					<div class="shop-item-details">
 						<span class="shop-item-price"><?= $result['prix'] ?> dt.</span>
+					</div>
+
+					<div class="shop-item-details">
+						<span class="shop-item-price"><?= $result['capacite'] ?> </span>
+					</div>
+					<div class="shop-item-details">
+						<span class="shop-item-price"><?= $result['datefin'] ?> </span>
 					</div>
 				</div>
 				

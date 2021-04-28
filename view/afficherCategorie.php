@@ -6,24 +6,6 @@ $categorieC =  new categorieC();
 $listecategorie = $categorieC->afficherCategorie();
 
 
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$perpage = isset($GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per-page'] : 3;
-
-
-
-$listecategorie = $categorie->afficherCategorie($page, $perpage);
-$totalP = $categorie->calcTotalRows($perpage);
-
-if(isset($_GET['recherche']))
-                       {
-                        $search_value=$_GET["recherche"];
-                       
-                        $listecategorie= $categorie->recherche($search_value);
-                        }
-
-
-
-
 ?>
 <html>
 <header>
@@ -77,6 +59,7 @@ if(isset($_GET['recherche']))
 </tr>
 
 </thead>   
+
     <?php foreach($listecategorie as $categorieC) { ?>
     <tr> 
    <!-- <td>

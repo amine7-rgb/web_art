@@ -114,36 +114,6 @@ class produitC {
 
 
 
-    public function rechercherProduit($type) {            
-        $sql = "SELECT * from produit where type=:type"; 
-        $db = config::getConnexion();
-        try {
-            $query = $db->prepare($sql);
-            $query->execute([
-                'type' => $produit->getType(),
-            ]); 
-            $result = $query->fetchAll(); 
-            return $result;
-        }
-        catch (PDOException $e) {
-            $e->getMessage();
-        }
-    }
-    public function getproduitbytype($type) {
-        try {
-            $pdo = getConnexion();
-            $query = $pdo->prepare(
-                'SELECT * FROM produit WHERE type = :type'
-            );
-            $query->execute([
-                'type' => $type
-            ]);
-            return $query->fetch();
-        } catch (PDOException $e) {
-            $e->getMessage();
-        }
-    }
-
 
 
     function modifierproduit($produit, $id){
@@ -187,20 +157,36 @@ class produitC {
 
 
 
+    public function rechercherproduit($type) {            
+        $sql = "SELECT * from produit where type=:type"; 
+        $db = config::getConnexion();
+        try {
+            $query = $db->prepare($sql);
+            $query->execute([
+                'type' => $produit->gettype(),
+            ]); 
+            $result = $query->fetchAll(); 
+            return $result;
+        }
+        catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function getproduitbytype($type) {
+        try {
+            $pdo = getConnexion();
+            $query = $pdo->prepare(
+                'SELECT * FROM produit WHERE type = :type'
+            );
+            $query->execute([
+                'type' => $type
+            ]);
+            return $query->fetch();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
 
 
 }

@@ -5,7 +5,6 @@ $produitC =  new produitC();
 
 $listeproduit = $produitC->afficherProduit();
 
-
 ?>
 
 
@@ -98,21 +97,14 @@ $listeproduit = $produitC->afficherProduit();
                                         
                     			  
      </td>
-     <td> 
-                                        <form method="POST" action="../view/rechercherProduit.php">
-                                        <button type="submit"  id="rechercher"  class="btn btn-danger" >rechercher</button>
-                                        <input type="hidden" value=<?PHP echo  $produitC['id']; ?> name="id">
-                                        </form>
-                                        
-                    			  
-     </td>
-  
+     
      
 
 
     </tr>
-    
-       
+   
+    <a href = "rechercherProduit.php" class="btn btn-primary shop-item-button">Search</a>
+
     <?php } ?>
  
 </table>
